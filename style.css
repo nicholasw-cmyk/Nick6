@@ -126,6 +126,10 @@ header h1 {
     border: 1px solid var(--border-color);
 }
 
+.full-width-widget {
+    grid-column: 1 / -1;
+}
+
 .widget h2 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -192,24 +196,203 @@ header h1 {
     stroke-linecap: round;
 }
 
-.expert-opinions-widget .opinion {
+/* Gold Brokers Widget */
+.gold-brokers-widget .broker {
     margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
 }
 
-.expert-opinions-widget .opinion:last-child {
+.gold-brokers-widget .broker:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.gold-brokers-widget h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.gold-brokers-widget p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.trade-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.trade-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.trade-btn.buy {
+    background-color: #22c55e; /* Green */
+}
+
+.trade-btn.sell {
+    background-color: #ef4444; /* Red */
+}
+
+.trade-btn:hover {
+    opacity: 0.9;
+}
+
+/* News Widget */
+.news-feed {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.news-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.news-item:last-child {
+    border-bottom: none;
     margin-bottom: 0;
 }
 
-.expert-opinions-widget p {
-    margin: 0 0 0.5rem 0;
+.news-item a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.news-item a:hover {
+    color: var(--secondary-color);
+}
+
+.news-item p {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0.25rem 0 0 0;
+}
+
+/* Portfolio Page */
+.holding-form, .trade-form, .analyser-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.holding-form input, .trade-form input, .analyser-form input {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     font-size: 1rem;
+}
+
+.holding-form button, .trade-form button, .analyser-form button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.holding-form button:hover, .trade-form button:hover, .analyser-form button:hover {
+    background-color: #a52a2a;
+}
+
+#portfolio-summary p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+#holdings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+#holdings-table th, #holdings-table td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#holdings-table th {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sell-holding-btn {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #ef4444; /* Red */
+    color: #ef4444;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sell-holding-btn:hover {
+    background-color: #fee2e2; /* Light Red */
+}
+
+#trade-confirmation {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Analyser Page */
+.analysis-results {
+    margin-top: 2rem;
+}
+
+.scenario {
+    background-color: var(--widget-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.scenario h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.scenario p {
+    margin: 0.5rem 0;
     line-height: 1.6;
 }
 
-.expert-opinions-widget span {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #6b7280; /* Gray */
+.scenario .rationale {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 1rem;
+}
+
+.best-case h3 {
+    color: #166534; /* Dark Green */
+}
+
+.worst-case h3 {
+    color: #991b1b; /* Dark Red */
 }
 
 /* Alerts Page */

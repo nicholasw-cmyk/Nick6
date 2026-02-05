@@ -15,6 +15,9 @@
             <nav>
                 <ul>
                     <li class="active"><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#trade">Trade</a></li>
+                    <li><a href="#analyser">Analyser</a></li>
                     <li><a href="#markets">Markets</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#alerts">Alerts</a></li>
@@ -58,20 +61,103 @@
                             <svg class="chart" id="chart" viewBox="0 0 500 150" preserveAspectRatio="none"></svg>
                         </div>
                     </section>
-                    <section class="widget expert-opinions-widget">
-                        <h2>Expert Analysis</h2>
-                        <div class="opinions">
-                            <div class="opinion">
-                                <p>"Gold is consolidating within a narrow range. A breakout above the $2,360 resistance level could signal further upside."</p>
-                                <span>- Mark Easton, Chief Commodity Strategist</span>
+                    <section class="widget gold-brokers-widget">
+                        <h2>Gold Brokers</h2>
+                        <div class="brokers">
+                            <div class="broker">
+                                <h3>BullionVault</h3>
+                                <p><strong>Commission:</strong> 0.5% (first $75k), then tiered</p>
+                                <p>A peer-to-peer platform for private investors to buy, sell, and store physical gold.</p>
+                                <div class="trade-buttons">
+                                    <button class="trade-btn buy" data-broker="BullionVault">Buy</button>
+                                    <button class="trade-btn sell" data-broker="BullionVault">Sell</button>
+                                </div>
                             </div>
-                            <div class="opinion">
-                                <p>"The recent Fed statement has introduced some uncertainty. We maintain a neutral stance, advising clients to hold existing positions."</p>
-                                <span>- Sarah Chen, Senior Market Analyst</span>
+                            <div class="broker">
+                                <h3>GoldBroker.com</h3>
+                                <p><strong>Commission:</strong> 1.5% - 0.75%, depending on volume</p>
+                                <p>Specializes in the purchase, sale, and storage of physical gold and silver.</p>
+                                <div class="trade-buttons">
+                                    <button class="trade-btn buy" data-broker="GoldBroker.com">Buy</button>
+                                    <button class="trade-btn sell" data-broker="GoldBroker.com">Sell</button>
+                                </div>
+                            </div>
+                            <div class="broker">
+                                <h3>APMEX</h3>
+                                <p><strong>Commission:</strong> Varies by product (spread-based)</p>
+                                <p>A leading online retailer of precious metals, offering a wide selection of gold products.</p>
+                                <div class="trade-buttons">
+                                    <button class="trade-btn buy" data-broker="APMEX">Buy</button>
+                                    <button class="trade-btn sell" data-broker="APMEX">Sell</button>
+                                </div>
                             </div>
                         </div>
                     </section>
+                    <section class="widget news-widget">
+                        <h2>Live News</h2>
+                        <div id="news-feed" class="news-feed"></div>
+                    </section>
                 </div>
+            </div>
+
+            <div id="portfolio" class="page-content">
+                <header><h1>My Portfolio</h1></header>
+                <div class="widgets-grid">
+                    <div class="widget">
+                        <h2>Portfolio Summary</h2>
+                        <div id="portfolio-summary"></div>
+                    </div>
+                    <div class="widget">
+                        <h2>Add a Holding</h2>
+                        <form id="holding-form" class="holding-form">
+                            <input type="number" id="holding-amount" placeholder="Amount (grams)" required>
+                            <input type="number" id="holding-price" placeholder="Purchase Price (per gram)" required>
+                            <button type="submit">Add Holding</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="widget full-width-widget">
+                    <h2>Holdings</h2>
+                    <table id="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount (g)</th>
+                                <th>Purchase Price</th>
+                                <th>Current Value</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-list"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="trade" class="page-content">
+                <header><h1>Trade</h1></header>
+                <div class="widget">
+                    <h2 id="trade-header">Trade with BullionVault</h2>
+                    <form id="trade-form" class="trade-form">
+                        <input type="hidden" id="trade-broker">
+                        <input type="hidden" id="trade-type">
+                        <input type="number" id="trade-amount" placeholder="Amount (grams)" required>
+                        <button type="submit" id="trade-btn">Confirm Trade</button>
+                    </form>
+                    <div id="trade-confirmation"></div>
+                </div>
+            </div>
+
+            <div id="analyser" class="page-content">
+                <header><h1>Returns Analyser</h1></header>
+                <div class="widget">
+                    <h2>Analyse Your Investment</h2>
+                    <form id="analyser-form" class="analyser-form">
+                        <input type="number" id="analyser-principal" placeholder="Principal Investment" required>
+                        <input type="number" id="analyser-horizon" placeholder="Time Horizon (years)" required>
+                        <button type="submit">Analyse</button>
+                    </form>
+                </div>
+                <div id="analysis-results" class="analysis-results"></div>
             </div>
 
             <div id="markets" class="page-content">
