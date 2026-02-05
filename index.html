@@ -21,6 +21,7 @@
                     <li><a href="#markets">Markets</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#alerts">Alerts</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#settings">Settings</a></li>
                 </ul>
             </nav>
@@ -182,6 +183,20 @@
                 <div class="widget">
                     <h2>Active Alerts</h2>
                     <ul id="alert-list" class="alert-list"></ul>
+                </div>
+            </div>
+
+            <div id="feedback" class="page-content">
+                <header><h1>Feedback</h1></header>
+                <div class="widget">
+                    <h2>Submit Your Feedback</h2>
+                    <form id="feedback-form" action="https://formspree.io/f/xqedzqel" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your feedback" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <div id="feedback-status"></div>
                 </div>
             </div>
 

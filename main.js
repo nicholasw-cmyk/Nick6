@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId === 'portfolio' && !window.portfolioInitialized) initializePortfolio();
             if (targetId === 'trade' && !window.tradeInitialized) initializeTrade();
             if (targetId === 'analyser' && !window.analyserInitialized) initializeAnalyser();
+            if (targetId === 'feedback' && !window.feedbackInitialized) initializeFeedback();
         });
     });
 
@@ -341,6 +342,44 @@ function renderAnalysis(principal, horizon, resultsEl) {
             <p class="rationale"><strong>Rationale:</strong> ${worstCaseRationale}</p>
         </div>
     `;
+}
+
+// --- Feedback ---
+function initializeFeedback() {
+    window.feedbackInitialized = true;
+    const form = document.getElementById('feedback-form');
+    const status = document.getElementById('feedback-status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            if (response.ok) {
+                status.innerHTML = "Thanks for your submission!";
+                status.style.color = 'green';
+                form.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                        status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                    status.style.color = 'red';
+                })
+            }
+        } catch (error) {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+            status.style.color = 'red';
+        }
+    });
 }
 
 

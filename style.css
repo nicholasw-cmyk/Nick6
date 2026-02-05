@@ -282,21 +282,27 @@ header h1 {
     margin: 0.25rem 0 0 0;
 }
 
-/* Portfolio Page */
-.holding-form, .trade-form, .analyser-form {
+/* Portfolio & Trade & Analyser & Feedback Forms */
+.holding-form, .trade-form, .analyser-form, #feedback-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.holding-form input, .trade-form input, .analyser-form input {
+.holding-form input, .trade-form input, .analyser-form input, #feedback-form input, #feedback-form textarea {
     padding: 0.75rem;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
+    font-family: inherit;
 }
 
-.holding-form button, .trade-form button, .analyser-form button {
+#feedback-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.holding-form button, .trade-form button, .analyser-form button, #feedback-form button {
     padding: 0.75rem;
     border: none;
     border-radius: 6px;
@@ -308,7 +314,7 @@ header h1 {
     transition: background-color 0.2s;
 }
 
-.holding-form button:hover, .trade-form button:hover, .analyser-form button:hover {
+.holding-form button:hover, .trade-form button:hover, .analyser-form button:hover, #feedback-form button:hover {
     background-color: #a52a2a;
 }
 
@@ -351,7 +357,7 @@ header h1 {
     background-color: #fee2e2; /* Light Red */
 }
 
-#trade-confirmation {
+#trade-confirmation, #feedback-status {
     margin-top: 1rem;
     font-weight: 600;
 }
