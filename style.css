@@ -362,6 +362,37 @@ header h1 {
     font-weight: 600;
 }
 
+/* Feedback Form Rating */
+.rating-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}
+
+.stars label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.stars input[type="radio"]:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: var(--primary-color);
+}
+
 /* Analyser Page */
 .analysis-results {
     margin-top: 2rem;
