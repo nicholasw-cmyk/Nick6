@@ -1,14 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toto Number Generator</title>
+    <title>GoldSight - Professional Market Analysis</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <toto-generator></toto-generator>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                GoldSight
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#markets">Markets</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#alerts">Alerts</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div id="dashboard" class="page-content active">
+                <header>
+                    <h1>Dashboard: Gold (XAU/USD)</h1>
+                    <div class="settings-bar">
+                        <div class="setting">
+                            <label for="currency-select">Currency:</label>
+                            <select id="currency-select">
+                                <option value="SGD">SGD</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+                        <div class="setting">
+                            <label for="weight-select">Unit:</label>
+                            <select id="weight-select">
+                                <option value="g">gram</option>
+                                <option value="oz">troy oz</option>
+                            </select>
+                        </div>
+                    </div>
+                </header>
+                <div class="widgets-grid">
+                    <section class="widget price-widget">
+                        <h2 id="price-header">Current Price (per gram)</h2>
+                        <div class="price" id="current-price">S$102.54</div>
+                        <div class="prediction" id="prediction">Hold</div>
+                        <div class="prediction-reason" id="prediction-reason">Price is stable; no significant short-term trend detected.</div>
+                        <div class="last-updated" id="last-updated"></div>
+                    </section>
+                    <section class="widget chart-widget">
+                        <h2>Price History (30-Day Trend)</h2>
+                        <div class="chart-container">
+                            <svg class="chart" id="chart" viewBox="0 0 500 150" preserveAspectRatio="none"></svg>
+                        </div>
+                    </section>
+                    <section class="widget expert-opinions-widget">
+                        <h2>Expert Analysis</h2>
+                        <div class="opinions">
+                            <div class="opinion">
+                                <p>"Gold is consolidating within a narrow range. A breakout above the $2,360 resistance level could signal further upside."</p>
+                                <span>- Mark Easton, Chief Commodity Strategist</span>
+                            </div>
+                            <div class="opinion">
+                                <p>"The recent Fed statement has introduced some uncertainty. We maintain a neutral stance, advising clients to hold existing positions."</p>
+                                <span>- Sarah Chen, Senior Market Analyst</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div id="markets" class="page-content">
+                <header><h1>Markets</h1></header>
+                <p>Market data and analysis will be displayed here.</p>
+            </div>
+
+            <div id="news" class="page-content">
+                <header><h1>News</h1></header>
+                <p>Latest news and updates will be displayed here.</p>
+            </div>
+
+            <div id="alerts" class="page-content">
+                <header><h1>Price Alerts</h1></header>
+                <div class="widget">
+                    <h2>Set a New Alert</h2>
+                    <form id="alert-form" class="alert-form">
+                        <input type="number" id="alert-price" placeholder="Enter target price" required>
+                        <button type="submit">Set Alert</button>
+                    </form>
+                </div>
+                <div class="widget">
+                    <h2>Active Alerts</h2>
+                    <ul id="alert-list" class="alert-list"></ul>
+                </div>
+            </div>
+
+            <div id="settings" class="page-content">
+                <header><h1>Settings</h1></header>
+                <p>User settings and preferences will be configured here.</p>
+            </div>
+        </main>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

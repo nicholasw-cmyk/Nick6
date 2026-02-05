@@ -1,18 +1,270 @@
 :root {
-    --background-color: #121212;
-    --surface-color: #1e1e1e;
-    --surface-color-2: #2e2e2e;
-    --primary-color: #00bcd4;
-    --text-color: #ffffff;
+    --background-color: #f4f7fa;
+    --sidebar-bg: #1f2937;
+    --widget-bg: #ffffff;
+    --primary-color: #d4af37; /* Gold */
+    --secondary-color: #4a90e2; /* Accent Blue */
+    --text-color: #333333;
+    --text-color-light: #f9fafb;
+    --border-color: #e5e7eb;
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    display: grid;
-    place-items: center;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    color: var(--text-color-light);
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="%23333"%3E%3Cpath d="M0 .5 L32 .5 M.5 0 L.5 32"/%3E%3C/svg%3E');
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 2rem;
+    text-align: center;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li a {
+    display: block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: var(--text-color-light);
+    transition: background-color 0.2s;
+}
+
+nav li.active a, nav li a:hover {
+    background-color: #374151;
+    border-left: 3px solid var(--primary-color);
+    padding-left: calc(2rem - 3px);
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.page-content {
+    display: none;
+}
+
+.page-content.active {
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.settings-bar {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.setting label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.setting select {
+    font-family: inherit;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--widget-bg);
+}
+
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.widget {
+    background-color: var(--widget-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.widget h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.price-widget .price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.price-widget .prediction {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prediction-reason {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.last-updated {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.prediction.buy {
+    background-color: #dcfce7; /* Light Green */
+    color: #166534; /* Dark Green */
+}
+
+.prediction.hold {
+    background-color: #fef9c3; /* Light Yellow */
+    color: #854d0e; /* Dark Yellow */
+}
+
+.prediction.sell {
+    background-color: #fee2e2; /* Light Red */
+    color: #991b1b; /* Dark Red */
+}
+
+.chart-container {
+    height: 250px;
+}
+
+.chart .line {
+    fill: none;
+    stroke: var(--secondary-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.expert-opinions-widget .opinion {
+    margin-bottom: 1.5rem;
+}
+
+.expert-opinions-widget .opinion:last-child {
+    margin-bottom: 0;
+}
+
+.expert-opinions-widget p {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.expert-opinions-widget span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280; /* Gray */
+}
+
+/* Alerts Page */
+.alert-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.alert-form input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.alert-form button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.alert-form button:hover {
+    background-color: #3a7ac8;
+}
+
+.alert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alert-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alert-list li:last-child {
+    border-bottom: none;
+}
+
+.alert-list .delete-alert {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #ef4444; /* Red */
+    color: #ef4444;
+    background-color: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.alert-list .delete-alert:hover {
+    background-color: #fee2e2; /* Light Red */
 }
